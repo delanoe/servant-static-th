@@ -107,6 +107,7 @@ module Servant.Static.TH
   , CSS
   , EOT
   , GEXF
+  , MAPS
   , GIF
   , HTML
   , Html
@@ -150,6 +151,7 @@ import Servant.Static.TH.Internal
   ( CSS
   , EOT
   , GEXF
+  , MAPS
   , GIF
   , ICO
   , JPEG

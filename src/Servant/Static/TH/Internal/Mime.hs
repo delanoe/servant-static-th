@@ -106,6 +106,7 @@ extensionMimeTypeMap =
   , ("woff", MimeTypeInfo [t|WOFF|] [t|ByteString|] byteStringToExp)
   , ("woff2",MimeTypeInfo [t|WOFF2|][t|ByteString|] byteStringToExp)
   , ("json", MimeTypeInfo [t|JSON|] [t|ByteString|] byteStringToExp)
+  , ("map",  MimeTypeInfo [t|MAPS|]  [t|ByteString|] byteStringToExp)
   , ("xml",  MimeTypeInfo [t|XML|]  [t|ByteString|] byteStringToExp)
   , ("gexf", MimeTypeInfo [t|GEXF|] [t|ByteString|] byteStringToExp)
   ]
@@ -337,3 +338,16 @@ instance MimeRender GEXF ByteString where
   mimeRender _ = LByteString.fromStrict
 
 
+-- | SOURCE-MAPS file (source-maps)
+--{-
+data MAPS deriving Typeable
+
+-- | @application\/map@
+instance Accept MAPS where
+  contentType :: Proxy MAPS -> MediaType
+  contentType _ = "application" // "json"
+
+instance MimeRender MAPS ByteString where
+  mimeRender :: Proxy MAPS -> ByteString -> LByteString.ByteString
+  mimeRender _ = LByteString.fromStrict
+--}
