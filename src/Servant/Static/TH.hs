@@ -124,6 +124,7 @@ module Servant.Static.TH
   , JS
   , JSON
   , PNG
+  , SASS
   , SVG
   , TTF
   , TXT
@@ -166,6 +167,7 @@ import Servant.Static.TH.Internal
   , JSON
   , JS
   , PNG
+  , SASS
   , SVG
   , TTF
   , TXT

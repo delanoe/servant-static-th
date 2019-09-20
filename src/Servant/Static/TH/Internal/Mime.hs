@@ -107,6 +107,7 @@ extensionMimeTypeMap =
   , ("woff2",MimeTypeInfo [t|WOFF2|][t|ByteString|] byteStringToExp)
   , ("json", MimeTypeInfo [t|JSON|] [t|ByteString|] byteStringToExp)
   , ("map",  MimeTypeInfo [t|MAPS|]  [t|ByteString|] byteStringToExp)
+  , ("sass",  MimeTypeInfo [t|SASS|]  [t|ByteString|] byteStringToExp)
   , ("xml",  MimeTypeInfo [t|XML|]  [t|ByteString|] byteStringToExp)
   , ("gexf", MimeTypeInfo [t|GEXF|] [t|ByteString|] byteStringToExp)
   ]
@@ -351,3 +352,19 @@ instance MimeRender MAPS ByteString where
   mimeRender :: Proxy MAPS -> ByteString -> LByteString.ByteString
   mimeRender _ = LByteString.fromStrict
 --}
+
+-- | SASS file
+--{-
+data SASS deriving Typeable
+
+-- | @application\/map@
+instance Accept SASS where
+  contentType :: Proxy SASS -> MediaType
+  contentType _ = "text" // "x-sass"
+
+instance MimeRender SASS ByteString where
+  mimeRender :: Proxy SASS -> ByteString -> LByteString.ByteString
+  mimeRender _ = LByteString.fromStrict
+--}
+
+
